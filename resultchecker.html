@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="assets/fontawesome/css/all.css">
+		<style type="text/css">
+			
+		</style>
+		<title></title>
+	</head>
+	<body style="background-color:yellow">
+    <div class="container"> 
+      <h1>2019/2020 UTME online result checker</h1><br>
+      <span id="result"> </span><span id="result2"></span><br><br>
+      <span>Have you written your exam yet?</span>
+            <select id="examwritten">
+              <option value=" ">Please select</option>
+              <option value="yes">yes</option>
+              <option value="no">No</option>
+            </select> 
+            <select id="examcenter">
+              <option>Please select exam center</option>
+              <option value="lagos">Lagos</option>
+              <option value="abuja">Abuja</option>
+            </select>   
+            <button onclick=" getresult()" >Get My result</button>        
+		  <script type="text/javascript">
+        function getresult(){
+          var examstatus = document.getElementById('examwritten').value;
+          var center = document.getElementById('examcenter').value;
+          
+          if ( examstatus == 'yes' && center == 'lagos') { document.getElementById('result').innerHTML="Feedback on assessment:"; document.getElementById('result2').innerHTML=" Total score:320";document.getElementById('result2').style.fontWeight='bold'
+
+          } else if (examstatus == 'no'){alert('How do you expect a result when you have not written exam');}
+         else if (examstatus == " "){alert('Please select an appropriate answer');}
+         }
+       
+      </script>
+      </div>
+		<script type="text/javascript" src="bootstrap/js/jquery-3.6.0.js"></script>
+		<script type="text/javascript" src="bootstrap/js/popper.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+	</body>		
+</html>

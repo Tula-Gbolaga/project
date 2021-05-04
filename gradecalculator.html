@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="assets/fontawesome/css/all.css">
+		<style type="text/css">
+			
+			
+		</style>
+		<title></title>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<!-- 1st row -->
+			<div class="row mt-5"> 
+				<div class=" offset-1 col-3"><span>Subject</span> </div>
+				<div class="col-4"><span>Score</span> </div>
+				<div class="col-3"><span>Grade</span> </div>
+			</div>
+			<div class="row mt-2"> 
+				<div class=" offset-1 col-3"><span>English</span> </div>
+				<div class="col-4"><input type='text' id='engscore' onchange="  engscoreval= document.getElementById('engscore').value; calculate(engscoreval); document.getElementById('enggrade').value= grade "> </div>
+				<div class="col-3"><input type='text' id="enggrade"> </div>
+			</div>
+			<div class="row mt-2"> 
+				<div class=" offset-1 col-3"><span>Mathematics</span> </div>
+				<div class="col-4"><input type='text' id='matscore' onchange="  matscoreval= document.getElementById('matscore').value; calculate(matscoreval); document.getElementById('matgrade').value= grade "> </div>
+				<div class="col-3"><input type='text' id='matgrade'> </div>
+			</div>
+			<div class="row mt-2"> 
+				<div class=" offset-1 col-3"><span>Chemistry</span> </div>
+				<div class="col-4"><input type='text' id='chemscore' onchange=" chemscoreval= document.getElementById('chemscore').value; calculate(chemscoreval); document.getElementById('chemgrade').value= grade "> </div>
+				<div class="col-3"><input type='text' id='chemgrade'> </div>
+			</div>
+			<div class="row mt-2"> 
+				<div class=" offset-1 col-3"><span>Biology</span> </div>
+				<div class="col-4"><input type='text' id='bioscore' onchange=" bioscoreval= document.getElementById('bioscore').value; calculate(bioscoreval); document.getElementById('biograde').value= grade "> </div>
+				<div class="col-3"><input type='text' id='biograde'> </div>
+			</div>
+			<div class="row mt-2"> 
+				<div class=" offset-1 col-3"><span>French</span> </div>
+				<div class="col-4"><input type='text' id='frenscore' onchange=" frenscoreval= document.getElementById('frenscore').value; calculate(frenscoreval); document.getElementById('frengrade').value= grade "> </div>
+				<div class="col-3"><input type='text' id='frengrade'> </div>
+			</div>
+			<div class="row mt-2">
+				<div class=" offset-1 col-2"><button class="btn btn-primary" onclick=" total = Number(engscoreval) + Number(matscoreval) + Number(chemscoreval) + Number(bioscoreval) + Number(frenscoreval); document.getElementById('totalscore').innerHTML= total; document.getElementById('average').innerHTML= total/5; seticon(); remark();">Get Result</button> </div>
+				
+				
+			</div>
+			<div class="row mt-2">
+				<div class=" offset-1 col-3"> <span> TOTAL</span></div>
+				<div class="col-4"> <span id="totalscore"></span></div>
+			</div>
+			<div class="row mt-4">
+				<div class=" offset-1 col-3"><span>Remarks</span> </div>
+				<div class="col-4"><span id="remarkmessage"></span></div>
+				<div class="col-3"><span id="icon" class= ></span> </div>
+			</div>
+			<div class="row mt-4">
+				<div class=" offset-1 col-3"><span>Average</span> </div>
+				<div class="col-4"><span id="average"></span></div>
+				
+			</div>
+
+			
+			
+		</div>
+		<script>
+			function calculate(score){
+				if(score<40 && score>=1){ grade='F';}
+				else if(score>=40 && score<=45){ grade='E';}
+				else if(score>45 && score<50){ grade='D';}
+				else if(score>=50 && score<60){ grade='C';}
+				else if(score>=60 && score<=69){ grade='B';}
+				else if(score>=70 && score<=100){ grade='A';}
+				else if(score='') {grade='invalid input';}
+				else {grade='invalid input';}
+				
+			}
+			function seticon(){
+				if (total<250){document.getElementById('icon').className="fas fa-thumbs-down fa-5x"; document.getElementById('icon').style.color='red';}
+				else{document.getElementById('icon').className="fas fa-thumbs-up fa-5x"; document.getElementById('icon').style.color='blue';}
+			}
+			function remark(){
+				if (total <= 200){document.getElementById('remarkmessage').innerHTML="<b> ITS LIKE YOU JUST WANT TO WASTE YOUR PARENT'S MONEY </b>"; document.getElementById('remarkmessage').style='color:red';}
+				else if (total >=201 && total <=250 ){document.getElementById('remarkmessage').innerHTML=" This is a poor performance, you need to sit up"; document.getElementById('remarkmessage').style='color:red';}
+				else if (total >=251 && total <=345 ){document.getElementById('remarkmessage').innerHTML="You did okay but there is room for improvement"; document.getElementById('remarkmessage').style='color:blue';}
+				else {document.getElementById('remarkmessage').innerHTML="You did very well, Your parents would be so proud!!!"; document.getElementById('remarkmessage').style='color:blue';}
+			}
+		</script>
+		<script type="text/javascript" src="bootstrap/js/jquery-3.6.0.js"></script>
+		<script type="text/javascript" src="bootstrap/js/popper.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+	</body>		
+</html>
